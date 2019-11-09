@@ -1,0 +1,86 @@
+{% load static %}
+<html>
+
+    <head>
+            <title>Become a Seller</title>
+
+            <link href="{% static 'realestate/css/vendor/kendo.common.min.css' %}" rel="stylesheet">
+            <link href="{% static 'realestate/css/vendor/kendo.material.min.css' %}" rel="stylesheet">
+            <link href="{% static 'realestate/css/vendor/kendo.material.mobile.min.css' %}" rel="stylesheet">
+            <link href="{% static 'realestate/css/vendor/singup.css' %}" rel="stylesheet">
+            <link href="../../static/realestate/css/vendor/signup.css" rel="stylesheet">
+            <!-- <link href="../../static/realestate/css/vendor/material-design-iconic-font.min.css" rel="stylesheet"> -->
+            
+            <link href="{% static 'realestate/css/style.css' %}" rel="stylesheet"> </link>
+    
+            <script src="{% static 'realestate/js/vendor/jquery.min.js' %}"> </script>
+            <script src="{% static 'realestate/js/vendor/kendo.all.min.js' %}"> </script>
+            <!-- <script src="{% static 'realestate/js/vendor/signup.js' %}"> </script> -->
+            <script src="../../static/realestate/js/vendor/signup.js"> </script>
+    
+            <script src="{% static 'realestate/js/script.js' %}"> </script>
+    </head>
+
+<body>
+
+    <div class="main">
+
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Sign up Now</h2>
+                        <form method="POST" class="register-form" id="register-form" action="/signup_view/">
+                            {% csrf_token %}
+                            {% if failed %}
+                              <div class="form-title" style="color: red;"> 
+                                 {{message}}
+                              </div> 
+                            {% endif %}
+                            <div class="form-group">
+                                <label for="first_name"><i class="zmdi zmdi-account material-icons-name"></i>First Name:</label>
+                                {{form.first_name}}
+                            </div>
+                            <div class="form-group">
+                                <label for="last_name"><i class="zmdi zmdi-account material-icons-name"></i>Last Name:</label>
+                                {{form.last_name}}
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i>Email:</label>
+                                {{form.email}}
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i>Username:</label>
+                                {{form.username}}
+                            </div>
+                            <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i>Password:</label>
+                                {{form.password}}
+                            </div>
+                            <div class="form-group">
+                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i>Confirm Password:</label>
+                                {{form.confirm_password}}
+                            </div>
+                            <div class="form-group">
+                                <!-- <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" /> -->
+                                <!-- <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label> -->
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" id="signup" class="form-submit" value="Register"/>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="../../static/realestate/images/signup.jpg" alt="sing up image"></figure>
+                        <a href="/signin_view/" class="signup-image-link">I am already Seller</a>
+                        <a href="/" class="signup-image-link">Home</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>

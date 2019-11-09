@@ -1,0 +1,80 @@
+{% load static %}
+<html>
+
+    <head>
+            <title>Login</title>
+            <link href="{% static 'realestate/css/vendor/kendo.common.min.css' %}" rel="stylesheet">
+            <link href="{% static 'realestate/css/vendor/kendo.material.min.css' %}" rel="stylesheet">
+            <link href="{% static 'realestate/css/vendor/kendo.material.mobile.min.css' %}" rel="stylesheet">
+            <link href="{% static 'realestate/css/vendor/singup.css' %}" rel="stylesheet">
+            <link href="../../static/realestate/css/vendor/signup.css" rel="stylesheet">
+            <!-- <link href="../../static/realestate/css/vendor/material-design-iconic-font.min.css" rel="stylesheet"> -->
+            
+            <link href="{% static 'realestate/css/style.css' %}" rel="stylesheet"> </link>
+    
+            <script src="{% static 'realestate/js/vendor/jquery.min.js' %}"> </script>
+            <script src="{% static 'realestate/js/vendor/kendo.all.min.js' %}"> </script>
+            <script src="{% static 'realestate/js/vendor/signup.js' %}"> </script>
+            <script src="../../static/realestate/js/vendor/signup.js"> </script>
+    
+            <script src="{% static 'realestate/js/script.js' %}"> </script>
+    </head>
+
+<body>
+
+    <div class="main">
+
+        <!-- Sing in  Form -->
+        <section class="sign-in">
+            <div class="container">
+                <div class="signin-content">
+                    <div class="signin-image">
+                        <figure><img src="../../static/realestate/images/signup.jpg" alt="sing up image"></figure>
+                        <a href="/signup_view/" class="signup-image-link">Become a Seller</a>
+                        <a href="/" class="signup-image-link">Home</a>
+                    </div>
+
+                    <div class="signin-form">
+                        <h2 class="form-title">Sign In</h2>
+                        <form method="POST" class="register-form" id="login-form" action="/signin_view/">
+                            {% csrf_token %}
+                            {% if failed %}
+                                <div class="form-title" style="color: red;"> 
+                                Incorrect Password or Username
+                                </div> 
+                            {% endif %}
+                            <div class="form-group">
+                                <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i>Username:</label>
+                                <!-- <input type="text" name="your_name" id="your_name" placeholder="Your Name"/> -->
+                                {{form.username}}
+                            </div>
+                            <div class="form-group">
+                                <label for="your_pass"><i class="zmdi zmdi-lock"></i>Password:</label>
+                                <!-- <input type="password" name="your_pass" id="your_pass" placeholder="Password"/> -->
+                                {{form.password}}
+                            </div>
+                            <div class="form-group"> <!-- how to make remember me???????-->
+                                <!-- <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
+                                <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label> -->
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" id="signin" class="form-submit" value="Log in"/>
+                            </div>
+                        </form>
+                        <div class="social-login">
+                            <span class="social-label">Or login with</span>
+                            <ul class="socials">
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>

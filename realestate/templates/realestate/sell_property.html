@@ -1,0 +1,44 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+    <title>Sell Property</title>
+        <link href="{% static 'realestate/css/vendor/kendo.common.min.css' %}" rel="stylesheet">
+        <link href="{% static 'realestate/css/vendor/kendo.material.min.css' %}" rel="stylesheet">
+        <link href="{% static 'realestate/css/vendor/kendo.material.mobile.min.css' %}" rel="stylesheet">
+        <link href="{% static 'realestate/css/style.css' %}" rel="stylesheet">
+
+        <link href="../../static/realestate/css/vendor/profile.css" rel="stylesheet">
+        <link href="../../static/realestate/css/vendor/signup.css" rel="stylesheet">
+
+        <script src="{% static 'realestate/js/vendor/jquery.min.js' %}"> </script>
+        <script src="{% static 'realestate/js/vendor/kendo.all.min.js' %}"> </script>
+        <script src="../../static/realestate/js/vendor/profile.js"> </script>
+        
+        <script src="../../static/realestate/js/vendor/signup.js"> </script>
+        <script src="{% static 'realestate/js/script.js' %}"> </script>
+
+
+</head>
+<body>
+    <div id="main-menu">
+        <div>
+            <ul id="s-menu"> </ul>
+        </div>
+        <div>
+            <ul id="s-menu2"> </ul>
+        </div>
+    </div>
+    <form action="/sell_property/" method="POST">
+        <div class="fieldlist">
+            <label for="title">Title:</label>
+        <!-- {% if editable %} -->
+            <input name='title' class="k-textbox" value=""> {{form.title}}
+        <!-- {% else %} -->
+            <!-- <input name='title' class="k-textbox" value="{{form.title}}" disabled> -->
+        <!-- {% endif %} -->
+        </div>
+    </form>
+    
+</body>
+</html>
